@@ -65,6 +65,7 @@ class AutoCompletePage(BasePage):
     @allure.step('Check colors in multi autocomplete')
     def check_color_in_multi(self):
         color_list = self.elements_are_present(self.locators.MULTI_VALUE)
+        print(color_list)
         colors = []
         for color in color_list:
             colors.append(color.text)

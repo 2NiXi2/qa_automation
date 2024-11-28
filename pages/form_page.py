@@ -14,7 +14,6 @@ class FormPage(BasePage):
 
     @allure.step('Fill in all fields')
     def fill_form_fields(self):
-        pass
         person = next(generated_person())
         file_name, path = generated_file()
         subjects = generated_subject()

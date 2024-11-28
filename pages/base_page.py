@@ -1,4 +1,5 @@
 import allure
+from selenium.common import TimeoutException
 from selenium.webdriver import ActionChains as AC
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
@@ -56,7 +57,7 @@ class BasePage:
     @allure.step('Drag and drop by offset')
     def action_drag_and_drop_by_offset(self, element, x_coords, y_coords):
         action = AC(self.driver)
-        self.go_to_element(element)
+        #self.go_to_element(element)
         action.drag_and_drop_by_offset(element, x_coords, y_coords)
         action.perform()
 
