@@ -1,5 +1,6 @@
 import allure
 from selenium.common import TimeoutException
+from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver import ActionChains as AC
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
@@ -7,11 +8,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class BasePage:
     def __init__(self, driver, url):
-        self.driver = driver
-        self.url = url
+        self.driver: WebDriver = driver
+        self.url: str = url
 
     @allure.step('Open a browser')
-    def open(self):
+    def open(self) -> None:
         self.driver.get(self.url)
 
     @allure.step('Find a visible element')

@@ -66,9 +66,10 @@ class BaseElement:
             return False
 
     @allure.step('Find clickable elements')
-    def is_clickable(self) -> Union[WebElement, bool]:
+    def is_clickable(self) -> bool:
         try:
             self.wait.until(EC.element_to_be_clickable(self.locator))
+            return True
         except TimeoutException:
             return False
 
